@@ -1,6 +1,5 @@
-package cameras.test;
+package cameras;
 
-import cameras.ScreenShot;
 import org.junit.*;
 import static org.junit.Assert.*;
 
