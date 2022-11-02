@@ -6,48 +6,45 @@ import java.util.Objects;
 
 public class Camera {
 
+	private final ScreenShot trueScreenshot;
 	private final List<ScreenShot> data;
 	private final Boolean isSide;
 
-	public ScreenShot getTrueScreenshot() {
-		return trueScreenshot;
-	}
-
-	private final ScreenShot trueScreenshot = null;
-	private int diffCounter;
-
-	private final static int MAX_DIFF = 1;
-
 	private Camera(ScreenShot trueScreenshot, boolean isSide) {
-		this.data = new ArrayList<>(List.of(this.trueScreenshot));
+		this.trueScreenshot = trueScreenshot;
+		this.data = new ArrayList<>(List.of(trueScreenshot));
 		this.isSide = isSide;
-		diffCounter = 0;
 	}
 
 	public boolean isSide() {
 		return isSide;
 	}
 
+	public ScreenShot getTrueScreenshot() {
+		return trueScreenshot;
+	}
+
 	public List<ScreenShot> getData() {
 		return new ArrayList<>(data);
 	}
 
-	public void addData(ScreenShot newS) throws ChangeDetectedException {
+	public void addData(ScreenShot newS) throws ChangeDetectedException, CameraShiftedException {
 		ScreenShot filteredS = newS;
-		data.add(newS);
 
-		if(isSide()) filteredS = ScreenShot.removeFloat(filteredS);
-
-		if(ScreenShot.isShifted(trueScreenshot, filteredS)) {
-			diffCounter = 0;
+		if(isSide()) {
+			filteredS = ScreenShot.removeFloatingContainers(newS);
+		} else {
+			ScreenShot.verifyCameraNotShifted(trueScreenshot, filteredS);
 		}
-		else if(diffCounter ++ > MAX_DIFF) {
+
+		if(ScreenShot.countDifferences(trueScreenshot, filteredS) > 0) {
 			throw Camera.getExceptionBuilder()
 					.setBefore(trueScreenshot)
 					.setAfter(newS)
 					.build();
 		}
 
+		data.add(newS);
 	}
 
 	public static Builder getBuilder() {
@@ -59,7 +56,7 @@ public class Camera {
 		private Boolean isSide = null;
 
 		public Builder setScreenShot(ScreenShot data) {
-			// No validation needed. Sure that the user did the right thing
+			ScreenShot.validate(data);
 			this.data = data;
 			return this;
 		}
@@ -78,6 +75,30 @@ public class Camera {
 
 	static ChangeDetectedException.Builder getExceptionBuilder() {
 		return new ChangeDetectedException.Builder();
+	}
+
+	public static final class CameraShiftedException extends Exception {
+
+		private final int rowShift;
+		private final int columnShift;
+
+		public CameraShiftedException(int rowShift, int columnShift) {
+			super(String.format(
+					"Error: camera shift by %d row(s) and %d column(s) detected from the data",
+					rowShift, columnShift
+			));
+			this.rowShift = rowShift;
+			this.columnShift = columnShift;
+		}
+
+		public int getRowShift() {
+			return rowShift;
+		}
+
+		public int getColumnShift() {
+			return columnShift;
+		}
+
 	}
 
 	public static final class ChangeDetectedException extends Exception {
@@ -118,7 +139,6 @@ public class Camera {
 				return new ChangeDetectedException(this.after, this.before);
 			}
 		}
-
 
 	}
 

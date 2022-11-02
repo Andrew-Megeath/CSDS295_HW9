@@ -5,14 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5687560-023f-4c6e-ad4d-39f1c5b83e8f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/bluecatcode_junit_4_12_extended.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CSDS295_HW9.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/spf4j_junit.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSDS295_HW9.iml" beforeDir="false" afterPath="$PROJECT_DIR$/cameras.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cameras/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cameras/Camera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cameras/CameraSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cameras/CameraSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cameras/ScreenShot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cameras/ScreenShot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/cameras/CameraTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cameras/CameraTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/cameras/ScreenShotTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cameras/ScreenShotTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,22 +35,99 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager">
-    <configuration name="All in CSDS295_HW9" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CSDS295_HW9" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
+  <component name="RunManager" selected="JUnit.CameraTest.testCameraAddFail">
+    <configuration name="CameraTest.testCameraAddFail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cameras" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cameras.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cameras" />
+      <option name="MAIN_CLASS_NAME" value="cameras.CameraTest" />
+      <option name="METHOD_NAME" value="testCameraAddFail" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CameraTest.testCameraAddNormal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cameras" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cameras.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cameras" />
+      <option name="MAIN_CLASS_NAME" value="cameras.CameraTest" />
+      <option name="METHOD_NAME" value="testCameraAddNormal" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CameraTest.testCameraBuilding" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cameras" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cameras.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cameras" />
+      <option name="MAIN_CLASS_NAME" value="cameras.CameraTest" />
+      <option name="METHOD_NAME" value="testCameraBuilding" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CameraTest.testDegenCameraBuilding" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cameras" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cameras.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cameras" />
+      <option name="MAIN_CLASS_NAME" value="cameras.CameraTest" />
+      <option name="METHOD_NAME" value="testDegenCameraBuilding" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CameraTest.testUntouchedCameraBuilding" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cameras" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cameras.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cameras" />
+      <option name="MAIN_CLASS_NAME" value="cameras.CameraTest" />
+      <option name="METHOD_NAME" value="testUntouchedCameraBuilding" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in CSDS295_HW9" />
+        <item itemvalue="JUnit.CameraTest.testCameraAddFail" />
+        <item itemvalue="JUnit.CameraTest.testCameraAddNormal" />
+        <item itemvalue="JUnit.CameraTest.testUntouchedCameraBuilding" />
+        <item itemvalue="JUnit.CameraTest.testDegenCameraBuilding" />
+        <item itemvalue="JUnit.CameraTest.testCameraBuilding" />
       </list>
     </recent_temporary>
   </component>

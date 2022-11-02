@@ -53,6 +53,6 @@ public class ScreenShotTest {
 				{false, false, false}});
 		assertEquals(ScreenShot.of(new Boolean[][]{{true, false, false},
 				{true, true, false},
-				{false, false, false}}), ScreenShot.removeFloat(s));
+				{false, false, false}}), ScreenShot.removeFloatingContainers(s));
 	}
 }

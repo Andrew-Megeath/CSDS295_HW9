@@ -10,7 +10,6 @@ package cameras;
 
 import java.util.Arrays;
 import java.util.Objects;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
@@ -32,14 +31,13 @@ public class ScreenShot {
 		return pixels;
 	}
 
-	public static ScreenShot removeFloat(ScreenShot s) {
+	public static ScreenShot removeFloatingContainers(ScreenShot s) {
 		Boolean[][] newPixels = Arrays.stream(s.getPixels())
 				.map(col -> {
-			long countTrue = Arrays.stream(col).takeWhile(pix -> pix).count();
-			return IntStream.range(0, col.length).mapToObj(i -> i > countTrue).collect(Collectors.toList())
-					.toArray(Boolean[]::new);
-		})
-				.collect(Collectors.toList()).toArray(Boolean[][]::new);
+					long countTrue = Arrays.stream(col).takeWhile(pix -> pix).count();
+					return IntStream.range(0, col.length).mapToObj(i -> i > countTrue).toList()
+							.toArray(Boolean[]::new);
+				}).toList().toArray(Boolean[][]::new);
 		return of(newPixels);
 	}
 
@@ -55,6 +53,20 @@ public class ScreenShot {
 			}
 		}
 		return false;
+	}
+
+	public static void verifyCameraNotShifted(ScreenShot before, ScreenShot after)
+			throws Camera.CameraShiftedException {
+		int rowCount = before.getPixels().length;
+		int colCount = before.getPixels()[0].length;
+
+		for(int i = -colCount+1; i < colCount; i++) {
+			for(int j = -rowCount+1; j < rowCount; j++) {
+				if(after.equals(shiftColBy(shiftRowBy(before, i), j))) {
+					throw new Camera.CameraShiftedException(j, i);
+				}
+			}
+		}
 	}
 
 	public static ScreenShot shiftRowBy(ScreenShot screenShot, int k) {
@@ -84,7 +96,23 @@ public class ScreenShot {
 						.toArray(Boolean[][]::new));
 	}
 
-	private static void validate(ScreenShot s){
+	public static int countDifferences(ScreenShot before, ScreenShot after) {
+		int diffCount = 0;
+		int rowCount = before.getPixels().length;
+		int colCount = before.getPixels()[0].length;
+
+		for(int i = 0; i < colCount; i++) {
+			for(int j = 0; j < rowCount; j++) {
+				if(!before.pixels[i][j].equals(after.pixels[i][j])){
+					diffCount++;
+				}
+			}
+		}
+
+		return diffCount;
+	}
+
+	public static void validate(ScreenShot s){
 		Boolean[][] pixels = s.pixels;
 
 		Objects.requireNonNull(pixels);

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CSDS295_HW9.iml" filepath="$PROJECT_DIR$/CSDS295_HW9.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cameras.iml" filepath="$PROJECT_DIR$/cameras.iml" />
     </modules>
   </component>
 </project>

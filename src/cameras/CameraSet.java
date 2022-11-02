@@ -33,10 +33,9 @@ public class CameraSet {
 			getFrontCam().addData(shot2);
 			getTopCam().addData(shot3);
 		}
-		catch(Camera.ChangeDetectedException e) {
+		catch(Camera.ChangeDetectedException | Camera.CameraShiftedException e) {
 			throw new IllegalArgumentException(e);
 		}
-
 	}
 
 	public static Builder getBuilder() {

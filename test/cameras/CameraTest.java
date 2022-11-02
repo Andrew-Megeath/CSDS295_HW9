@@ -6,22 +6,23 @@ import static org.junit.Assert.*;
 public class CameraTest {
 	@Test
 	public void testCameraBuilding() {
-		Camera sideCam = Camera.getBuilder()
+		Camera.getBuilder()
 				.setScreenShot(ScreenShot.of(
 						new Boolean[][]{{true, false, false},
 								{true, true, false},
 								{true, true, true}})).setSide(true).build();
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test(expected = NullPointerException.class)
 	public void testDegenCameraBuilding() {
-
-		// The QA Team send their regards
-		Camera degenCam = Camera.getBuilder()
+		Camera.getBuilder()
 				.setScreenShot(null)
 				.setSide(null).build();
-		Camera moreDegenCams = Camera.getBuilder().build();
+	}
 
+	@Test(expected = NullPointerException.class)
+	public void testUntouchedCameraBuilding() {
+		Camera.getBuilder().build();Camera.getBuilder().build();
 	}
 
 	@Test
@@ -46,7 +47,7 @@ public class CameraTest {
 	}
 
 	@Test(expected = Camera.ChangeDetectedException.class)
-	public void testCameraAddFail() throws Camera.ChangeDetectedException {
+	public void testCameraAddFail() throws Camera.ChangeDetectedException, Camera.CameraShiftedException {
 		Camera sideCam = Camera.getBuilder().setScreenShot(ScreenShot.of(
 				new Boolean[][]{{true, false, false},
 						{true, true, false},
@@ -59,7 +60,7 @@ public class CameraTest {
 				new Boolean[][]{{true, true, false},
 						{true, true, false},
 						{true, true, true}}));
-		fail("Error: New Screenshot should not be added smoothly!");
+		//fail("Error: New Screenshot should not be added smoothly!");
 	}
 
 }
