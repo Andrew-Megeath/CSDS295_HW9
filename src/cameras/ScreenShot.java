@@ -31,11 +31,11 @@ public class ScreenShot {
 		return pixels;
 	}
 
-	public static ScreenShot removeFloatingContainers(ScreenShot s) {
+	public static ScreenShot removeFloat(ScreenShot s) {
 		Boolean[][] newPixels = Arrays.stream(s.getPixels())
-				.map(col -> {
-					long countTrue = Arrays.stream(col).takeWhile(pix -> pix).count();
-					return IntStream.range(0, col.length).mapToObj(i -> i > countTrue).toList()
+				.map(row -> {
+					long countTrue = Arrays.stream(row).takeWhile(pix -> pix).count();
+					return IntStream.range(0, row.length).mapToObj(i -> i > countTrue).toList()
 							.toArray(Boolean[]::new);
 				}).toList().toArray(Boolean[][]::new);
 		return of(newPixels);
@@ -45,28 +45,14 @@ public class ScreenShot {
 		int rowCount = before.getPixels().length;
 		int colCount = before.getPixels()[0].length;
 
-		for(int i = -colCount+1; i < colCount; i++) {
-			for(int j = -rowCount+1; j < rowCount; j++) {
-				if(after == (shiftColBy(shiftRowBy(before, i), j))) {
+		for(int i = -rowCount+1; i < rowCount; i++) {
+			for(int j = -colCount+1; j < colCount; j++) {
+				if(after == shiftColBy(shiftRowBy(before, i), j)) {
 					return true;
 				}
 			}
 		}
 		return false;
-	}
-
-	public static void verifyCameraNotShifted(ScreenShot before, ScreenShot after)
-			throws Camera.CameraShiftedException {
-		int rowCount = before.getPixels().length;
-		int colCount = before.getPixels()[0].length;
-
-		for(int i = -colCount+1; i < colCount; i++) {
-			for(int j = -rowCount+1; j < rowCount; j++) {
-				if(after.equals(shiftColBy(shiftRowBy(before, i), j))) {
-					throw new Camera.CameraShiftedException(j, i);
-				}
-			}
-		}
 	}
 
 	public static ScreenShot shiftRowBy(ScreenShot screenShot, int k) {
@@ -88,7 +74,7 @@ public class ScreenShot {
 				Arrays.stream(screenShot.getPixels())
 						.map(row -> IntStream.range(0, row.length)
 								.mapToObj(i -> {
-									if(i - k > 0 && i - k < row.length) {
+									if(i - k >= 0 && i - k < row.length) {
 										return row[i - k];
 									}
 									else return false;
@@ -101,8 +87,8 @@ public class ScreenShot {
 		int rowCount = before.getPixels().length;
 		int colCount = before.getPixels()[0].length;
 
-		for(int i = 0; i < colCount; i++) {
-			for(int j = 0; j < rowCount; j++) {
+		for(int i = 0; i < rowCount; i++) {
+			for(int j = 0; j < colCount; j++) {
 				if(!before.pixels[i][j].equals(after.pixels[i][j])){
 					diffCount++;
 				}
@@ -117,11 +103,11 @@ public class ScreenShot {
 
 		Objects.requireNonNull(pixels);
 
-		Arrays.stream(pixels).forEach(col -> Objects.requireNonNull(col, "Null col found in array!"));
+		Arrays.stream(pixels).forEach(row -> Objects.requireNonNull(row, "Null row found in array!"));
 
 		int rowLength = Arrays.stream(pixels).findAny().orElse(new Boolean[]{}).length;
 
-		assert Arrays.stream(pixels).allMatch(col -> col.length == rowLength) : "Cols are not of same length!";
+		assert Arrays.stream(pixels).allMatch(row -> row.length == rowLength) : "Rows are not of same length!";
 	}
 
 	public static ScreenShot of(Boolean[][] pixels) {
@@ -141,4 +127,22 @@ public class ScreenShot {
 		}
 		else return false;
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder("{");
+
+		for(int i = 0; i < pixels.length; i++) {
+			for(int j = 0; j < pixels[0].length; j++) {
+				sb.append(pixels[i][j] ? 'T' : 'F');
+			}
+			if(i < pixels.length - 1){
+				sb.append("/");
+			}
+		}
+
+		sb.append("}");
+		return sb.toString();
+	}
+
 }

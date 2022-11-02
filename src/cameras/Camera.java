@@ -32,9 +32,9 @@ public class Camera {
 		ScreenShot filteredS = newS;
 
 		if(isSide()) {
-			filteredS = ScreenShot.removeFloatingContainers(newS);
-		} else {
-			ScreenShot.verifyCameraNotShifted(trueScreenshot, filteredS);
+			filteredS = ScreenShot.removeFloat(newS);
+		} else if(ScreenShot.isShifted(trueScreenshot, filteredS)){
+			throw new CameraShiftedException();
 		}
 
 		if(ScreenShot.countDifferences(trueScreenshot, filteredS) > 0) {
@@ -79,24 +79,8 @@ public class Camera {
 
 	public static final class CameraShiftedException extends Exception {
 
-		private final int rowShift;
-		private final int columnShift;
-
-		public CameraShiftedException(int rowShift, int columnShift) {
-			super(String.format(
-					"Error: camera shift by %d row(s) and %d column(s) detected from the data",
-					rowShift, columnShift
-			));
-			this.rowShift = rowShift;
-			this.columnShift = columnShift;
-		}
-
-		public int getRowShift() {
-			return rowShift;
-		}
-
-		public int getColumnShift() {
-			return columnShift;
+		public CameraShiftedException() {
+			super("Error: camera shift detected from the data");
 		}
 
 	}
