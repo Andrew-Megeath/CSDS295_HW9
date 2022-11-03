@@ -102,9 +102,9 @@ $ANT_HOME/lib must contain (see Ant-JUnit and JaCoCo installation guides):
     </junitreport>
 
     <jacoco:report>
-      <executiondata>
+      <!--executiondata>
         <file file="${jacoco.file}"/>
-      </executiondata>
+      </executiondata-->
 
       <structure name="${ant.project.name}">
         <classfiles>

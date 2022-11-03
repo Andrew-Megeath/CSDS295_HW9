@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CameraSet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">map</a> &gt; <a href="index.source.html" class="el_package">cameras</a> &gt; <span class="el_source">CameraSet.java</span></div><h1>CameraSet.java</h1><pre class="source lang-java linenums">package cameras;
+
+import java.util.Arrays;
+import java.util.stream.IntStream;
+
+public class CameraSet {
+
+	private final Camera frontCam;
+	private final Camera sideCam;
+	private final Camera topCam;
+
+<span class="nc" id="L12">	private CameraSet(Camera frontCam, Camera sideCam, Camera topCam) {</span>
+<span class="nc" id="L13">		this.frontCam = frontCam;</span>
+<span class="nc" id="L14">		this.sideCam = sideCam;</span>
+<span class="nc" id="L15">		this.topCam = topCam;</span>
+<span class="nc" id="L16">	}</span>
+
+	public Camera getFrontCam() {
+<span class="nc" id="L19">		return frontCam;</span>
+	}
+
+	public Camera getSideCam() {
+<span class="nc" id="L23">		return sideCam;</span>
+	}
+
+	public Camera getTopCam() {
+<span class="nc" id="L27">		return topCam;</span>
+	}
+
+	public void addData(ScreenShot frontShot, ScreenShot sideShot, ScreenShot topShot) {
+		try {
+<span class="nc" id="L32">			getFrontCam().addData(frontShot);</span>
+<span class="nc" id="L33">			getSideCam().addData(sideShot);</span>
+<span class="nc" id="L34">			getTopCam().addData(topShot);</span>
+		}
+<span class="nc" id="L36">		catch(Camera.ChangeDetectedException | Camera.CameraShiftedException e) {</span>
+<span class="nc" id="L37">			throw new IllegalArgumentException(e);</span>
+<span class="nc" id="L38">		}</span>
+<span class="nc" id="L39">	}</span>
+
+	public static Builder getBuilder() {
+<span class="nc" id="L42">		return new Builder();</span>
+	}
+
+<span class="nc" id="L45">	public static final class Builder {</span>
+
+		private int[][] packages;
+		private Integer height;
+
+		public Builder setHeight(int height) {
+<span class="nc bnc" id="L51" title="All 2 branches missed.">			if(height &lt; 0){</span>
+<span class="nc" id="L52">				throw new IllegalArgumentException(&quot;Height cannot be negative&quot;);</span>
+			}
+<span class="nc" id="L54">			this.height = height;</span>
+<span class="nc" id="L55">			return this;</span>
+		}
+
+		public Builder setPackages(int[][] packages) {
+<span class="nc" id="L59">			validate(packages);</span>
+<span class="nc" id="L60">			this.packages = packages;</span>
+<span class="nc" id="L61">			return this;</span>
+		}
+
+		private void validate(int[][] packages) {
+<span class="nc bnc" id="L65" title="All 2 branches missed.">			assert height != null : &quot;Height must be entered before packages&quot;;</span>
+<span class="nc bnc" id="L66" title="All 2 branches missed.">			for(int[] aPackage : packages) {</span>
+<span class="nc bnc" id="L67" title="All 2 branches missed.">				for(int stackHeight : aPackage) {</span>
+<span class="nc" id="L68">					verifyPackageStackInRange(stackHeight);</span>
+				}
+			}
+<span class="nc" id="L71">		}</span>
+
+		private void verifyPackageStackInRange(int stackHeight) {
+<span class="nc bnc" id="L74" title="All 2 branches missed.">			if(stackHeight &lt; 0){</span>
+<span class="nc" id="L75">				throw new IllegalArgumentException(&quot;Container stack heights cannot be negative&quot;);</span>
+<span class="nc bnc" id="L76" title="All 2 branches missed.">			}else if(stackHeight &gt; height){</span>
+<span class="nc" id="L77">				throw new IllegalArgumentException(&quot;Container stack heights cannot exceed the maximum height&quot;);</span>
+			}
+<span class="nc" id="L79">		}</span>
+
+		public CameraSet build() {
+<span class="nc" id="L82">			ScreenShot front = ScreenShot.of(IntStream.range(0, packages[0].length)</span>
+<span class="nc" id="L83">					.map(i -&gt; Arrays.stream(packages)</span>
+<span class="nc" id="L84">							.mapToInt(row -&gt; row[i])</span>
+<span class="nc" id="L85">							.max()</span>
+<span class="nc" id="L86">							.orElse(0))</span>
+<span class="nc bnc" id="L87" title="All 2 branches missed.">					.mapToObj(count -&gt; IntStream.range(0, height).mapToObj(i -&gt; i &lt; count).toArray(Boolean[]::new))</span>
+<span class="nc" id="L88">					.toArray(Boolean[][]::new));</span>
+
+<span class="nc" id="L90">			ScreenShot side = ScreenShot.of((Arrays.stream(packages)</span>
+<span class="nc" id="L91">					.mapToInt(arr -&gt; Arrays.stream(arr).max().orElse(0)))</span>
+<span class="nc bnc" id="L92" title="All 2 branches missed.">					.mapToObj(count -&gt; IntStream.range(0, height).mapToObj(i -&gt; i &lt; count).toArray(Boolean[]::new))</span>
+<span class="nc" id="L93">					.toArray(Boolean[][]::new));</span>
+
+<span class="nc" id="L95">			ScreenShot top = ScreenShot.of(Arrays.stream(packages)</span>
+<span class="nc bnc" id="L96" title="All 2 branches missed.">					.map(row -&gt; Arrays.stream(row).mapToObj(i -&gt; i &gt; 0).toArray(Boolean[]::new))</span>
+<span class="nc" id="L97">					.toArray(Boolean[][]::new));</span>
+
+<span class="nc" id="L99">			return new CameraSet(</span>
+<span class="nc" id="L100">					Camera.getBuilder().setScreenShot(front).setSide(true ).build(),</span>
+<span class="nc" id="L101">					Camera.getBuilder().setScreenShot(side).setSide(true).build(),</span>
+<span class="nc" id="L102">					Camera.getBuilder().setScreenShot(top).setSide(false).build());</span>
+		}
+
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

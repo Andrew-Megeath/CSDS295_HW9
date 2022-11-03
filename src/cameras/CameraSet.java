@@ -62,7 +62,9 @@ public class CameraSet {
 		}
 
 		private void validate(int[][] packages) {
-			assert height != null : "Height must be entered before packages";
+			if(height == null){
+				throw new UnsupportedOperationException("Height must be entered before packages");
+			}
 			for(int[] aPackage : packages) {
 				for(int stackHeight : aPackage) {
 					verifyPackageStackInRange(stackHeight);

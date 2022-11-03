@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e5687560-023f-4c6e-ad4d-39f1c5b83e8f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cameras/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cameras/Camera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cameras/CameraSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cameras/CameraSet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cameras/ScreenShot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cameras/ScreenShot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/cameras/CameraSetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cameras/CameraSetTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/cameras/CameraTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cameras/CameraTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/cameras/ScreenShotTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cameras/ScreenShotTest.java" afterDir="false" />
@@ -48,7 +47,7 @@
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunManager" selected="JUnit.cameras in cameras">
-    <configuration name="CameraTest.testCameraAddNormal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CameraSetTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="cameras" />
       <extension name="coverage">
         <pattern>
@@ -57,14 +56,29 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="cameras" />
-      <option name="MAIN_CLASS_NAME" value="cameras.CameraTest" />
-      <option name="METHOD_NAME" value="testCameraAddNormal" />
+      <option name="MAIN_CLASS_NAME" value="cameras.CameraSetTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CameraSetTest.testAddData_invalidScreenShot" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cameras" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cameras.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cameras" />
+      <option name="MAIN_CLASS_NAME" value="cameras.CameraSetTest" />
+      <option name="METHOD_NAME" value="testAddData_invalidScreenShot" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ScreenShotTest.testIsShifted_colShiftLeft" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CameraSetTest.testCameraSetBuilding_negativePackageStackHeight" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="cameras" />
       <extension name="coverage">
         <pattern>
@@ -73,14 +87,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="cameras" />
-      <option name="MAIN_CLASS_NAME" value="cameras.ScreenShotTest" />
-      <option name="METHOD_NAME" value="testIsShifted_colShiftLeft" />
+      <option name="MAIN_CLASS_NAME" value="cameras.CameraSetTest" />
+      <option name="METHOD_NAME" value="testCameraSetBuilding_negativePackageStackHeight" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ScreenShotTest.testIsShifted_rowAndColShift" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CameraSetTest.testCameraSetBuilding_stackHeightExceedsMaxHeight" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="cameras" />
       <extension name="coverage">
         <pattern>
@@ -89,24 +103,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="cameras" />
-      <option name="MAIN_CLASS_NAME" value="cameras.ScreenShotTest" />
-      <option name="METHOD_NAME" value="testIsShifted_rowAndColShift" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ScreenShotTest.testIsShifted_rowShiftDown" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="cameras" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cameras.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cameras" />
-      <option name="MAIN_CLASS_NAME" value="cameras.ScreenShotTest" />
-      <option name="METHOD_NAME" value="testIsShifted_rowShiftDown" />
+      <option name="MAIN_CLASS_NAME" value="cameras.CameraSetTest" />
+      <option name="METHOD_NAME" value="testCameraSetBuilding_stackHeightExceedsMaxHeight" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -129,10 +127,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.cameras in cameras" />
-        <item itemvalue="JUnit.CameraTest.testCameraAddNormal" />
-        <item itemvalue="JUnit.ScreenShotTest.testIsShifted_rowAndColShift" />
-        <item itemvalue="JUnit.ScreenShotTest.testIsShifted_colShiftLeft" />
-        <item itemvalue="JUnit.ScreenShotTest.testIsShifted_rowShiftDown" />
+        <item itemvalue="JUnit.CameraSetTest" />
+        <item itemvalue="JUnit.CameraSetTest.testAddData_invalidScreenShot" />
+        <item itemvalue="JUnit.CameraSetTest.testCameraSetBuilding_stackHeightExceedsMaxHeight" />
+        <item itemvalue="JUnit.CameraSetTest.testCameraSetBuilding_negativePackageStackHeight" />
       </list>
     </recent_temporary>
   </component>
