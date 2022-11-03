@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e5687560-023f-4c6e-ad4d-39f1c5b83e8f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cameras/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cameras/Camera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cameras/CameraSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cameras/CameraSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cameras/ScreenShot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cameras/ScreenShot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/cameras/CameraSetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cameras/CameraSetTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/cameras/CameraTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cameras/CameraTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/cameras/ScreenShotTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cameras/ScreenShotTest.java" afterDir="false" />
@@ -78,22 +79,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CameraSetTest.testCameraSetBuilding_negativePackageStackHeight" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="cameras" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cameras.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cameras" />
-      <option name="MAIN_CLASS_NAME" value="cameras.CameraSetTest" />
-      <option name="METHOD_NAME" value="testCameraSetBuilding_negativePackageStackHeight" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="CameraSetTest.testCameraSetBuilding_stackHeightExceedsMaxHeight" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="cameras" />
       <extension name="coverage">
@@ -105,6 +90,22 @@
       <option name="PACKAGE_NAME" value="cameras" />
       <option name="MAIN_CLASS_NAME" value="cameras.CameraSetTest" />
       <option name="METHOD_NAME" value="testCameraSetBuilding_stackHeightExceedsMaxHeight" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CameraTest.testAddData_cameraShift" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cameras" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cameras.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cameras" />
+      <option name="MAIN_CLASS_NAME" value="cameras.CameraTest" />
+      <option name="METHOD_NAME" value="testAddData_cameraShift" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -127,10 +128,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.cameras in cameras" />
+        <item itemvalue="JUnit.CameraTest.testAddData_cameraShift" />
         <item itemvalue="JUnit.CameraSetTest" />
         <item itemvalue="JUnit.CameraSetTest.testAddData_invalidScreenShot" />
         <item itemvalue="JUnit.CameraSetTest.testCameraSetBuilding_stackHeightExceedsMaxHeight" />
-        <item itemvalue="JUnit.CameraSetTest.testCameraSetBuilding_negativePackageStackHeight" />
       </list>
     </recent_temporary>
   </component>

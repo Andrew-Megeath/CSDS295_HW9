@@ -3,6 +3,9 @@ package cameras;
 import org.junit.*;
 import static org.junit.Assert.*;
 
+/**
+ * Contains JUnit tests for CameraSet
+ */
 public class CameraSetTest {
 
 	private CameraSet newSet;

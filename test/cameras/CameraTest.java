@@ -6,6 +6,9 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
+/**
+ * Contains JUnit tests for Camera
+ */
 public class CameraTest {
 
 	@Test
@@ -64,16 +67,25 @@ public class CameraTest {
 
 	@Test(expected = Camera.CameraShiftedException.class)
 	public void testAddData_cameraShift() throws Camera.ChangeDetectedException, Camera.CameraShiftedException {
-		Camera sideCam = Camera.getBuilder().setScreenShot(ScreenShot.of(
+		ScreenShot s1 = ScreenShot.of(
 				new Boolean[][]{
 						{true, false, false},
 						{true, true, false},
-						{true, true, true}})).setSide(true).build();
-		sideCam.addData(ScreenShot.of(
+						{true, true, true}});
+		ScreenShot s2 = ScreenShot.of(
 				new Boolean[][]{
 						{true, true, false},
 						{true, true, true},
-						{false, false, false}}));
+						{false, false, false}});
+
+		Camera sideCam = Camera.getBuilder().setScreenShot(s1).setSide(true).build();
+		try {
+			sideCam.addData(s2);
+		} catch(Camera.ChangeDetectedException e) {
+			assertEquals(s1, e.getBefore());
+			assertEquals(s2, e.getAfter());
+			throw e;
+		}
 	}
 
 	@Test(expected = Camera.ChangeDetectedException.class)
