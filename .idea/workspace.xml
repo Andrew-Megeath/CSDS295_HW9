@@ -7,10 +7,7 @@
     <list default="true" id="e5687560-023f-4c6e-ad4d-39f1c5b83e8f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cameras/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cameras/Camera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cameras/CameraSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cameras/CameraSet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cameras/ScreenShot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cameras/ScreenShot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/cameras/CameraSetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cameras/CameraSetTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/cameras/CameraTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cameras/CameraTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/cameras/ScreenShotTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cameras/ScreenShotTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +44,15 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="JUnit.cameras in cameras">
+  <component name="RunManager" selected="JUnit.All in cameras">
+    <configuration name="All in cameras" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cameras" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CameraSetTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="cameras" />
       <extension name="coverage">
@@ -74,22 +79,6 @@
       <option name="PACKAGE_NAME" value="cameras" />
       <option name="MAIN_CLASS_NAME" value="cameras.CameraSetTest" />
       <option name="METHOD_NAME" value="testAddData_invalidScreenShot" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CameraSetTest.testCameraSetBuilding_stackHeightExceedsMaxHeight" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="cameras" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cameras.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cameras" />
-      <option name="MAIN_CLASS_NAME" value="cameras.CameraSetTest" />
-      <option name="METHOD_NAME" value="testCameraSetBuilding_stackHeightExceedsMaxHeight" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -127,11 +116,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in cameras" />
         <item itemvalue="JUnit.cameras in cameras" />
         <item itemvalue="JUnit.CameraTest.testAddData_cameraShift" />
         <item itemvalue="JUnit.CameraSetTest" />
         <item itemvalue="JUnit.CameraSetTest.testAddData_invalidScreenShot" />
-        <item itemvalue="JUnit.CameraSetTest.testCameraSetBuilding_stackHeightExceedsMaxHeight" />
       </list>
     </recent_temporary>
   </component>

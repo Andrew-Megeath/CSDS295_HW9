@@ -158,45 +158,6 @@ public class ScreenShotTest {
 	}
 
 	@Test
-	public void testCountDifferences_identical() {
-		assertEquals(0, ScreenShot.countDifferences(
-				ScreenShot.of(new Boolean[][]{
-						{true, true, true, false},
-						{true, true, false, false},
-						{false, false, false, true}}),
-				ScreenShot.of(new Boolean[][]{
-						{true, true, true, false},
-						{true, true, false, false},
-						{false, false, false, true}})));
-	}
-
-	@Test
-	public void testCountDifferences_someDifferent() {
-		assertEquals(3, ScreenShot.countDifferences(
-				ScreenShot.of(new Boolean[][]{
-						{true, true, true, false},
-						{true, true, false, false},
-						{false, false, false, true}}),
-				ScreenShot.of(new Boolean[][]{
-						{true, false, true, false},
-						{true, true, true, false},
-						{false, true, false, true}})));
-	}
-
-	@Test
-	public void testCountDifferences_allDifferent() {
-		assertEquals(12, ScreenShot.countDifferences(
-				ScreenShot.of(new Boolean[][]{
-						{true, true, true, false},
-						{true, true, false, false},
-						{false, false, false, true}}),
-				ScreenShot.of(new Boolean[][]{
-						{false, false, false, true},
-						{false, false, true, true},
-						{true, true, true, false}})));
-	}
-
-	@Test
 	public void testEquals_equal(){
 		ScreenShot s1 = ScreenShot.of(new Boolean[][]{
 				{true, true},

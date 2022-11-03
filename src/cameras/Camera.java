@@ -65,7 +65,7 @@ public class Camera {
 			throw new CameraShiftedException();
 		}
 
-		if(ScreenShot.countDifferences(trueScreenshot, filteredS) > 0) {
+		if(!trueScreenshot.equals(filteredS)) {
 			throw Camera.getExceptionBuilder()
 					.setBefore(trueScreenshot)
 					.setAfter(filteredS)

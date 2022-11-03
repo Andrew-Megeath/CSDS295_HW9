@@ -114,28 +114,6 @@ public class ScreenShot {
 	}
 
 	/**
-	 * Counts the number of differing pixels between the given ScreenShots
-	 * @param before The original image
-	 * @param after The new image
-	 * @return The number of differing pixels
-	 */
-	public static int countDifferences(ScreenShot before, ScreenShot after) {
-		int diffCount = 0;
-		int rowCount = before.getPixels().length;
-		int colCount = before.getPixels()[0].length;
-
-		for(int i = 0; i < rowCount; i++) {
-			for(int j = 0; j < colCount; j++) {
-				if(!before.pixels[i][j].equals(after.pixels[i][j])){
-					diffCount++;
-				}
-			}
-		}
-
-		return diffCount;
-	}
-
-	/**
 	 * Asserts that the given ScreenShot has no null values or rows with incorrect lengths
 	 * @param s The ScreenShot to examine
 	 */
@@ -174,13 +152,22 @@ public class ScreenShot {
 		else return false;
 	}
 
+	/**
+	 * Helper method for toString()
+	 * @param bool The boolean to convert
+	 * @return The char from the boolean
+	 */
+	private static char boolToChar(boolean bool){
+		return bool ? 'T' : 'F';
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder("{");
 
 		for(int i = 0; i < pixels.length; i++) {
 			for(int j = 0; j < pixels[0].length; j++) {
-				sb.append(pixels[i][j] ? 'T' : 'F');
+				sb.append(boolToChar(pixels[i][j]));
 			}
 			if(i < pixels.length - 1){
 				sb.append("/");
