@@ -17,10 +17,6 @@ import java.util.stream.IntStream;
  */
 public class ScreenShot {
 
-	/*
-	Define the rows in this 2D array as the pixels of given by the camera.
-	Oh boy really hope I didn't mix row with col
-	 */
 	private final Boolean[][] pixels;
 
 	private ScreenShot(Boolean[][] pixels) {
@@ -35,7 +31,7 @@ public class ScreenShot {
 		Boolean[][] newPixels = Arrays.stream(s.getPixels())
 				.map(row -> {
 					long countTrue = Arrays.stream(row).takeWhile(pix -> pix).count();
-					return IntStream.range(0, row.length).mapToObj(i -> i > countTrue).toList()
+					return IntStream.range(0, row.length).mapToObj(i -> i < countTrue).toList()
 							.toArray(Boolean[]::new);
 				}).toList().toArray(Boolean[][]::new);
 		return of(newPixels);
@@ -47,7 +43,7 @@ public class ScreenShot {
 
 		for(int i = -rowCount+1; i < rowCount; i++) {
 			for(int j = -colCount+1; j < colCount; j++) {
-				if(after == shiftColBy(shiftRowBy(before, i), j)) {
+				if(after.equals(shiftColBy(shiftRowBy(before, i), j))) {
 					return true;
 				}
 			}
@@ -58,7 +54,7 @@ public class ScreenShot {
 	public static ScreenShot shiftRowBy(ScreenShot screenShot, int k) {
 		return of(IntStream.range(0, screenShot.getPixels().length)
 				.mapToObj(i -> {
-					if(i - k > 0 && i - k < screenShot.getPixels().length) {
+					if(i - k >= 0 && i - k < screenShot.getPixels().length) {
 						return Arrays.copyOf(screenShot.getPixels()[i - k], screenShot.getPixels()[i - k].length);
 					}
 					else {

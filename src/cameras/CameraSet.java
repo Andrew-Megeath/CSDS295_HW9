@@ -45,9 +45,12 @@ public class CameraSet {
 	public static final class Builder {
 
 		private int[][] packages;
-		private int height;
+		private Integer height;
 
 		public Builder setHeight(int height) {
+			if(height < 0){
+				throw new IllegalArgumentException("Height cannot be negative");
+			}
 			this.height = height;
 			return this;
 		}
@@ -59,7 +62,20 @@ public class CameraSet {
 		}
 
 		private void validate(int[][] packages) {
-			// Why need validation smh QA
+			assert height != null : "Height must be entered before packages";
+			for(int[] aPackage : packages) {
+				for(int stackHeight : aPackage) {
+					verifyPackageStackInRange(stackHeight);
+				}
+			}
+		}
+
+		private void verifyPackageStackInRange(int stackHeight) {
+			if(stackHeight < 0){
+				throw new IllegalArgumentException("Container stack heights cannot be negative");
+			}else if(stackHeight > height){
+				throw new IllegalArgumentException("Container stack heights cannot exceed the maximum height");
+			}
 		}
 
 		public CameraSet build() {
@@ -84,10 +100,12 @@ public class CameraSet {
 					.map(row -> Arrays.stream(row).mapToObj(i -> i > 0).toArray(Boolean[]::new))
 					.toArray(Boolean[][]::new));
 
-			return new CameraSet(Camera.getBuilder().setScreenShot(front).setSide(true).build(),
-					Camera.getBuilder().setScreenShot(top).setSide(true).build(),
-					Camera.getBuilder().setScreenShot(side).setSide(false).build());
+			return new CameraSet(
+					Camera.getBuilder().setScreenShot(front).setSide(true).build(),
+					Camera.getBuilder().setScreenShot(side).setSide(true).build(),
+					Camera.getBuilder().setScreenShot(top).setSide(false).build());
 		}
+
 	}
 
 }

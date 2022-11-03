@@ -77,14 +77,6 @@ public class Camera {
 		return new ChangeDetectedException.Builder();
 	}
 
-	public static final class CameraShiftedException extends Exception {
-
-		public CameraShiftedException() {
-			super("Error: camera shift detected from the data");
-		}
-
-	}
-
 	public static final class ChangeDetectedException extends Exception {
 
 		private final ScreenShot before;
@@ -122,6 +114,15 @@ public class Camera {
 			public ChangeDetectedException build() {
 				return new ChangeDetectedException(this.after, this.before);
 			}
+
+		}
+
+	}
+
+	public static final class CameraShiftedException extends Exception {
+
+		public CameraShiftedException() {
+			super("Error: camera shift detected from the data, please fix immediately");
 		}
 
 	}
@@ -129,10 +130,15 @@ public class Camera {
 	@Override
 	public boolean equals(Object other) {
 		if(other instanceof Camera) {
-			return this.getTrueScreenshot() == ((Camera) other).getTrueScreenshot()
+			return this.getTrueScreenshot().equals(((Camera) other).getTrueScreenshot())
 					&& this.isSide() == ((Camera) other).isSide();
 		}
 		else return false;
+	}
+
+	@Override
+	public String toString() {
+		return String.format("Camera {side = %s, current = %s}", isSide, trueScreenshot);
 	}
 
 }

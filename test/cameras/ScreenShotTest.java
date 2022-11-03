@@ -4,6 +4,7 @@ import org.junit.*;
 import static org.junit.Assert.*;
 
 public class ScreenShotTest {
+
 	@Test
 	public void testShiftColBy() {
 		ScreenShot s = ScreenShot.of(
@@ -65,4 +66,5 @@ public class ScreenShotTest {
 				{true, true, false},
 				{false, false, false}}), ScreenShot.removeFloat(s));
 	}
+
 }

@@ -13,20 +13,26 @@ public class CameraSetTest {
 	@Before
 	public void init() {
 		newSet = CameraSet.getBuilder()
-				.setPackages(new int[][]{{1, 2, 3, 4}, {0, 4, 1, 5}, {1, 2, 0, 1}}).setHeight(5).build();
+				.setHeight(5).setPackages(new int[][]{
+						{1, 2, 3, 4},
+						{0, 4, 1, 5},
+						{1, 2, 0, 1}}).build();
 		ScreenShot frontShot = ScreenShot.of(
-				new Boolean[][]{{true, false, false, false, false},
+				new Boolean[][]{
+						{true, false, false, false, false},
 						{true, true, true, true, false},
 						{true, true, true, false, false},
 						{true, true, true, true, true}}
 		);
 		ScreenShot sideShot = ScreenShot.of(
-				new Boolean[][]{{true, true, true, true, false},
+				new Boolean[][]{
+						{true, true, true, true, false},
 						{true, true, true, true, true},
 						{true, true, false, false, false}}
 		);
 		ScreenShot topShot = ScreenShot.of(
-				new Boolean[][]{{true, true, true, true},
+				new Boolean[][]{
+						{true, true, true, true},
 						{false, true, true, true},
 						{true, true, false, true}}
 		);
@@ -37,32 +43,35 @@ public class CameraSetTest {
 
 	@Test
 	public void testCameraSetFront() {
-		assertEquals(newSet.getFrontCam(), newFront);
+		assertEquals(newFront, newSet.getFrontCam());
 	}
 
 	@Test
 	public void testCameraSetSide() {
-		assertEquals(newSet.getSideCam(), newSide);
+		assertEquals(newSide, newSet.getSideCam());
 	}
 
 	@Test
 	public void testCameraSetTop() {
-		assertEquals(newSet.getTopCam(), newTop);
+		assertEquals(newTop, newSet.getTopCam());
 	}
 
 	@Test
 	public void testCameraAddNoChange() {
 		newSet.addData(ScreenShot.of(
-				new Boolean[][]{{true, false, false, false, false},
+				new Boolean[][]{
+						{true, false, false, false, false},
 						{true, true, true, true, false},
 						{true, true, true, false, false},
 						{true, true, true, true, true}}
 		), ScreenShot.of(
-				new Boolean[][]{{true, true, true, true, false},
+				new Boolean[][]{
+						{true, true, true, true, false},
 						{true, true, true, true, true},
 						{true, true, false, false, false}}
 		), ScreenShot.of(
-				new Boolean[][]{{true, true, true, true},
+				new Boolean[][]{
+						{true, true, true, true},
 						{false, true, true, true},
 						{true, true, false, true}}
 		));
@@ -71,30 +80,36 @@ public class CameraSetTest {
 	@Test(expected = IllegalArgumentException.class)
 	public void testCameraAddWrong() {
 		newSet.addData(ScreenShot.of(
-				new Boolean[][]{{true, false, false, false, false},
+				new Boolean[][]{
+						{true, false, false, false, false},
 						{true, true, true, true, false},
 						{true, true, true, false, false},
 						{true, true, true, true, true}}
 		), ScreenShot.of(
-				new Boolean[][]{{true, true, true, true, false},
+				new Boolean[][]{
+						{true, true, true, true, false},
 						{true, true, true, true, true},
 						{true, true, false, false, false}}
 		), ScreenShot.of(
-				new Boolean[][]{{true, true, true, false},
+				new Boolean[][]{
+						{true, true, true, false},
 						{false, true, true, true},
 						{true, true, false, true}}
 		));
 		newSet.addData(ScreenShot.of(
-				new Boolean[][]{{true, false, false, false, false},
+				new Boolean[][]{
+						{true, false, false, false, false},
 						{true, true, true, true, false},
 						{true, true, true, false, false},
 						{true, true, true, true, true}}
 		), ScreenShot.of(
-				new Boolean[][]{{true, true, true, true, false},
+				new Boolean[][]{
+						{true, true, true, true, false},
 						{true, true, true, true, true},
 						{true, true, false, false, false}}
 		), ScreenShot.of(
-				new Boolean[][]{{true, true, true, false},
+				new Boolean[][]{
+						{true, true, true, false},
 						{false, true, true, true},
 						{true, true, false, true}}
 		));
