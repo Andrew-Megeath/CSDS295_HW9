@@ -114,4 +114,5 @@ public class CameraSetTest {
 						{true, true, false, true}}
 		));
 	}
+	
 }

@@ -27,11 +27,11 @@ public class CameraSet {
 		return topCam;
 	}
 
-	public void addData(ScreenShot shot1, ScreenShot shot2, ScreenShot shot3) {
+	public void addData(ScreenShot frontShot, ScreenShot sideShot, ScreenShot topShot) {
 		try {
-			getSideCam().addData(shot1);
-			getFrontCam().addData(shot2);
-			getTopCam().addData(shot3);
+			getFrontCam().addData(frontShot);
+			getSideCam().addData(sideShot);
+			getTopCam().addData(topShot);
 		}
 		catch(Camera.ChangeDetectedException | Camera.CameraShiftedException e) {
 			throw new IllegalArgumentException(e);
@@ -79,21 +79,17 @@ public class CameraSet {
 		}
 
 		public CameraSet build() {
-
-			// Such an over-complicated algorithm! Really hope I didn't mess up anywhere
-			// I imagine the Screenshot for sided as being flipped 90 deg for ease of implementation
-
-			ScreenShot front = ScreenShot.of(IntStream.range(0, packages.length)
+			ScreenShot front = ScreenShot.of(IntStream.range(0, packages[0].length)
 					.map(i -> Arrays.stream(packages)
 							.mapToInt(row -> row[i])
 							.max()
 							.orElse(0))
-					.mapToObj(count -> IntStream.range(0, height).mapToObj(i -> i <= count).toArray(Boolean[]::new))
+					.mapToObj(count -> IntStream.range(0, height).mapToObj(i -> i < count).toArray(Boolean[]::new))
 					.toArray(Boolean[][]::new));
 
 			ScreenShot side = ScreenShot.of((Arrays.stream(packages)
 					.mapToInt(arr -> Arrays.stream(arr).max().orElse(0)))
-					.mapToObj(count -> IntStream.range(0, height).mapToObj(i -> i <= count).toArray(Boolean[]::new))
+					.mapToObj(count -> IntStream.range(0, height).mapToObj(i -> i < count).toArray(Boolean[]::new))
 					.toArray(Boolean[][]::new));
 
 			ScreenShot top = ScreenShot.of(Arrays.stream(packages)
@@ -101,7 +97,7 @@ public class CameraSet {
 					.toArray(Boolean[][]::new));
 
 			return new CameraSet(
-					Camera.getBuilder().setScreenShot(front).setSide(true).build(),
+					Camera.getBuilder().setScreenShot(front).setSide(true ).build(),
 					Camera.getBuilder().setScreenShot(side).setSide(true).build(),
 					Camera.getBuilder().setScreenShot(top).setSide(false).build());
 		}

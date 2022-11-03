@@ -32,15 +32,17 @@ public class Camera {
 		ScreenShot filteredS = newS;
 
 		if(isSide()) {
-			filteredS = ScreenShot.removeFloat(newS);
-		} else if(ScreenShot.isShifted(trueScreenshot, filteredS)){
+			filteredS = ScreenShot.removeFloat(filteredS);
+		}
+
+		if(ScreenShot.isShifted(trueScreenshot, filteredS)){
 			throw new CameraShiftedException();
 		}
 
 		if(ScreenShot.countDifferences(trueScreenshot, filteredS) > 0) {
 			throw Camera.getExceptionBuilder()
 					.setBefore(trueScreenshot)
-					.setAfter(newS)
+					.setAfter(filteredS)
 					.build();
 		}
 

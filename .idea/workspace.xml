@@ -10,6 +10,7 @@
       <change beforePath="$PROJECT_DIR$/src/cameras/CameraSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cameras/CameraSet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cameras/ScreenShot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cameras/ScreenShot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/cameras/CameraSetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cameras/CameraSetTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/cameras/CameraTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cameras/CameraTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/cameras/ScreenShotTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cameras/ScreenShotTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,71 +47,8 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="JUnit.CameraSetTest.testCameraSetTop">
-    <configuration name="CameraSetTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="cameras" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cameras.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cameras" />
-      <option name="MAIN_CLASS_NAME" value="cameras.CameraSetTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CameraSetTest.testCameraSetFront" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="cameras" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cameras.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cameras" />
-      <option name="MAIN_CLASS_NAME" value="cameras.CameraSetTest" />
-      <option name="METHOD_NAME" value="testCameraSetFront" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CameraSetTest.testCameraSetSide" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="cameras" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cameras.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cameras" />
-      <option name="MAIN_CLASS_NAME" value="cameras.CameraSetTest" />
-      <option name="METHOD_NAME" value="testCameraSetSide" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CameraSetTest.testCameraSetTop" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="cameras" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cameras.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cameras" />
-      <option name="MAIN_CLASS_NAME" value="cameras.CameraSetTest" />
-      <option name="METHOD_NAME" value="testCameraSetTop" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CameraTest.testCameraAddFail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.cameras in cameras">
+    <configuration name="CameraTest.testCameraAddNormal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="cameras" />
       <extension name="coverage">
         <pattern>
@@ -120,19 +58,81 @@
       </extension>
       <option name="PACKAGE_NAME" value="cameras" />
       <option name="MAIN_CLASS_NAME" value="cameras.CameraTest" />
-      <option name="METHOD_NAME" value="testCameraAddFail" />
+      <option name="METHOD_NAME" value="testCameraAddNormal" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScreenShotTest.testIsShifted_colShiftLeft" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cameras" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cameras.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cameras" />
+      <option name="MAIN_CLASS_NAME" value="cameras.ScreenShotTest" />
+      <option name="METHOD_NAME" value="testIsShifted_colShiftLeft" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScreenShotTest.testIsShifted_rowAndColShift" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cameras" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cameras.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cameras" />
+      <option name="MAIN_CLASS_NAME" value="cameras.ScreenShotTest" />
+      <option name="METHOD_NAME" value="testIsShifted_rowAndColShift" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScreenShotTest.testIsShifted_rowShiftDown" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cameras" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cameras.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cameras" />
+      <option name="MAIN_CLASS_NAME" value="cameras.ScreenShotTest" />
+      <option name="METHOD_NAME" value="testIsShifted_rowShiftDown" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="cameras in cameras" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cameras" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cameras.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cameras" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CameraSetTest.testCameraSetTop" />
-        <item itemvalue="JUnit.CameraSetTest.testCameraSetFront" />
-        <item itemvalue="JUnit.CameraSetTest" />
-        <item itemvalue="JUnit.CameraSetTest.testCameraSetSide" />
-        <item itemvalue="JUnit.CameraTest.testCameraAddFail" />
+        <item itemvalue="JUnit.cameras in cameras" />
+        <item itemvalue="JUnit.CameraTest.testCameraAddNormal" />
+        <item itemvalue="JUnit.ScreenShotTest.testIsShifted_rowAndColShift" />
+        <item itemvalue="JUnit.ScreenShotTest.testIsShifted_colShiftLeft" />
+        <item itemvalue="JUnit.ScreenShotTest.testIsShifted_rowShiftDown" />
       </list>
     </recent_temporary>
   </component>

@@ -37,13 +37,17 @@ public class ScreenShot {
 		return of(newPixels);
 	}
 
+	private static boolean isShiftedBy(ScreenShot before, ScreenShot after, int rowShift, int colShift){
+		return (rowShift != 0 || colShift != 0) && after.equals(shiftColBy(shiftRowBy(before, rowShift), colShift));
+	}
+
 	public static boolean isShifted(ScreenShot before, ScreenShot after) {
 		int rowCount = before.getPixels().length;
 		int colCount = before.getPixels()[0].length;
 
 		for(int i = -rowCount+1; i < rowCount; i++) {
 			for(int j = -colCount+1; j < colCount; j++) {
-				if(after.equals(shiftColBy(shiftRowBy(before, i), j))) {
+				if(isShiftedBy(before, after, i, j)) {
 					return true;
 				}
 			}
